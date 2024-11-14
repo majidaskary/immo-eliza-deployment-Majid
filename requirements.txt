@@ -1,0 +1,6 @@
+immo-eliza-deployment/
+├── app.py          # FastAPI backend
+├── predict.py      # Prediction module
+├── streamlit.py    # Streamlit frontend
+├── gb.LGBM_Regressor_Apartment.pkl  # Pre-trained apartment model
+├── gb.LGBM_Regressor_House.pkl      # Pre-trained house model

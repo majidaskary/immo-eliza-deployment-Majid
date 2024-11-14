@@ -1,0 +1,12 @@
+services:
+  - type: web                                                     # The type of service. Use web for a FastAPI app
+    name: fastapi-app                                             # The name of the service
+    env: python                                                   # The environment type. Use python for Python applications
+    region: oregon                                                # The server region (e.g., oregon). can change this based on preferred region
+    buildCommand: "pip install -r requirements.txt"               # The command to install dependencies from "requirements.txt"
+    startCommand: "uvicorn app:app --host 0.0.0.0 --port 8000"    # The command to start the FastAPI app with Uvicorn
+    plan: free                                                    # The pricing plan. Use free for the free tier
+    healthCheckPath: "/health"                                    # The endpoint for health checks. This is optional but recommended.
+    envVars:                                                      # Environment variables. set the PORT variable to 8000
+      - key: PORT
+        value: "8000"
