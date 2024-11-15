@@ -45,7 +45,7 @@ if st.button("Predict Price"):
     try:
         # api_url = "https://immo-code.onrender.com/predict"
         # response = requests.post("http://localhost:8000/predict", json=input_data)
-        response = requests.post("https://immo-code.onrender.com/", json=input_data)
+        response = requests.post("https://immo-code.onrender.com/predict", json=input_data)
         # Check the response
         if response.status_code == 200:
             result = response.json()
