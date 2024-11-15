@@ -35,8 +35,12 @@ class InputData(BaseModel):
 
 @app.get("/")
 def form_page():      
-   return {"welcome to immo-Majid"}
+   return {"welcome to immo-Code"}
 
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
 
 @app.post("/predict")
 async def prediction(data: InputData):     # asynd def is an asynchronous function 

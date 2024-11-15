@@ -2,7 +2,7 @@ services:
   - type: web
     name: fastapi-service
     env: docker
-    dockerfilePath: Dockerfile.fastapi
+    dockerfilePath: Dockerfile
     plan: free
     healthCheckPath: "/health"
     autoDeploy: true
@@ -10,6 +10,10 @@ services:
   - type: web
     name: streamlit-service
     env: docker
-    dockerfilePath: Dockerfile.streamlit
+    dockerfilePath: Dockerfile
     plan: free
     autoDeploy: true
+
+
+
+
