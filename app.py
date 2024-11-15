@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Literal
-from predict import predict
-from predict import preprocessing
+from .predict import predict
+from .predict import preprocessing
+from fastapi.middleware.cors import CORSMiddleware
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -64,7 +65,7 @@ if __name__ == "__main__":
     uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
 
 
-from fastapi.middleware.cors import CORSMiddleware
+
 
 # Adding CORS middleware to allow cross-origin requests
 app.add_middleware(
