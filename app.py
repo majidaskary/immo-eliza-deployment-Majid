@@ -4,6 +4,7 @@ from typing import Literal
 from predict import predict
 #from predict import preprocessing
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -42,6 +43,12 @@ def form_page():
 @app.get("/health")
 async def health_check():
     return {"status": "healthy"}
+
+@app.get("/predict")
+async def redirect_to_post():
+    response = RedirectResponse(url="/predict", status_code=307)
+    response.method = "POST"
+    return response
 
 @app.post("/predict")
 async def prediction(data: InputData):     # asynd def is an asynchronous function 
