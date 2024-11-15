@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 
+
 # Title of the Streamlit app
 st.title("immo-Eliza Property Price Prediction")
 
@@ -40,10 +41,11 @@ if st.button("Predict Price"):
         #total_area_per_bedroom_scaled      # from "total_area_sqm" and "nbr_bedrooms"
     }
 
-    # Send a POST request to the FastAPI backend
+    # Send a POST request to the FastAPI backend    
     try:
-        response = requests.post("http://localhost:8000/predict", json=input_data)
-
+        # api_url = "https://immo-code.onrender.com/predict"
+        # response = requests.post("http://localhost:8000/predict", json=input_data)
+        response = requests.post("https://immo-code.onrender.com/predict", json=input_data)
         # Check the response
         if response.status_code == 200:
             result = response.json()
