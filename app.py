@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Literal
-from predict import predict
-from predict import preprocessing
+from .predict import predict
+from .predict import preprocessing
 
 # Initialize FastAPI app
 app = FastAPI()
