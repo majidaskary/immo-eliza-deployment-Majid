@@ -1,19 +1,11 @@
 services:
   - type: web
-    name: fastapi-service
+    name: immo-code-service
     env: docker
     dockerfilePath: Dockerfile
     plan: free
     healthCheckPath: "/health"
     autoDeploy: true
-
-  - type: web
-    name: streamlit-service
-    env: docker
-    dockerfilePath: Dockerfile
-    plan: free
-    autoDeploy: true
-
-
-
-
+    envVars:
+      - key: PORT
+        value: "8000"
