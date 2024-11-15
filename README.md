@@ -1,9 +1,8 @@
-# 🏡 Immo-Eliza Property Price Prediction 
+# 🏡 Immo-Eliza Property Price Prediction
 
-This project is a web application for predicting property prices using a FastAPI backend and a Streamlit frontend. The backend processes user input data, performs preprocessing, and uses a trained machine learning model to make predictions.
+This project is an advanced web application designed to estimate property prices based on user-provided data. It combines a robust FastAPI backend for handling API requests with a dynamic Streamlit frontend for a seamless user experience. The backend is responsible for processing the input data, applying necessary preprocessing steps, and utilizing a pre-trained machine learning model to generate accurate predictions. The frontend offers an intuitive interface for users to input property details, making the prediction process both interactive and user-friendly.
 
 <img src="https://cdn.propertyupdate.com.au/wp-content/uploads/2024/01/property-value.jpg" width="400" height="auto"/>
-
 
 ## 🌐 Live Application
 
@@ -14,50 +13,49 @@ The application is deployed and accessible at:
 - **Frontend (Streamlit)**: The main user interface is available on the above link.
 - **Backend API (FastAPI)**: The API is integrated into the same link and accessible via endpoints (e.g., `/docs` for API documentation).
 
+## 📝 Table of Contents
 
-# 📝 Table of Contents
-Overview
-Repo structure
-Architecture
-Features
-Tech Stack
-Installation
-Usage
-Deployment
-Project Structure
-Contributing
-
+- [Overview](#overview)
+- [Repo Structure](#repo-structure)
+- [Architecture](#architecture)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Data Preprocessing and Prediction](#data-preprocessing-and-prediction)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [Contact](#contact)
 
 ## 📖 Overview
 
-### This project serves two main purposes:
+This project serves two main purposes:
 
-### 1. Public User Interface:
+1. **Public User Interface**:
+   - Provides an intuitive and interactive web interface via Streamlit, where users can input property details like the type of property (apartment or house), total area, and number of bedrooms.
+   - The input data is sent to the backend for preprocessing and prediction using a machine learning model.
+   - The predicted property price is displayed back to the user.
 
-* Provides an intuitive and interactive web interface via Streamlit, where users can input property details like the type of property (apartment or house), total area, and number of bedrooms.
-* The input data is sent to the backend for preprocessing and prediction using a machine learning model.
-* The predicted property price is displayed back to the user.
+2. **Developer API Interface**:
+   - Exposes an API using FastAPI for developers who want to integrate the prediction model into their own applications.
+   - Developers can use tools like Swagger UI or Postman to interact with the API directly.
 
-### 2. Developer API Interface:
+## 📦 Repo Structure
 
-* Exposes an API using FastAPI for developers who want to integrate the prediction model into their own applications.
-* Developers can use tools like Swagger UI or Postman to interact with the API directly, sending input data and receiving predictions.
-
-
-## 📦 Repo structure
-```.
-│   Dockerfile.fastapi
-│   Dockerfile.streamli
-│   app.py
-│   streamlit.py
-│   predict.py    
-│   requirements.txt    
-│   render.yaml
-│   gb.LGBM_Regressor_Apartment.pkl
-│   gb.LGBM_Regressor_House.pkl
-│   architecture.png
-│   README.md
-```
+```bash
+.
+├── Dockerfile.fastapi
+├── Dockerfile.streamlit
+├── app.py
+├── streamlit.py
+├── predict.py
+├── requirements.txt
+├── render.yaml
+├── models/
+│   ├── gb.LGBM_Regressor_Apartment.pkl
+│   └── gb.LGBM_Regressor_House.pkl
+├── architecture.png
+└── README.md
 
 * **app.py:** FastAPI backend application.
 * **streamlit.py:** Streamlit frontend application.
@@ -74,7 +72,7 @@ Below is the architecture diagram of the project:
 ![Output chart](architecture.png)
 
 
-## 🔍 Explanation
+🔍 **Explanation**
 
 * The FastAPI backend handles all requests for data preprocessing and prediction.
 * The Streamlit frontend provides a user-friendly interface for public users to input property details.
@@ -149,13 +147,13 @@ cd immo-eliza-deployment
 ### Set Up a Virtual Environment
 For Windows:
 ```
-python -m venv APIenv\
+python -m venv APIenv
 APIenv\Scripts\activate
 ```
 
 For Linux/Mac:
 ```
-python3 -m venv APIenv\
+python3 -m venv APIenv
 source APIenv/bin/activate
 ```
 
@@ -168,7 +166,7 @@ pip install -r requirements.txt
 ### Build Docker Images
 For Both Windows and Linux/Mac:
 ```
-docker build -t immo-fastapi -f Dockerfile.fastapi .\
+docker build -t immo-fastapi -f Dockerfile.fastapi .
 docker build -t immo-streamlit -f Dockerfile.streamlit .
 ```
 
@@ -178,7 +176,7 @@ docker build -t immo-streamlit -f Dockerfile.streamlit .
 Start the FastAPI and Streamlit services locally.
 For Both Windows and Linux/Mac:
 ```
-docker run -p 8000:8000 immo-fastapi\
+docker run -p 8000:8000 immo-fastapi
 docker run -p 8501:8501 immo-streamlit
 ```
 * FastAPI will be available at: http://localhost:8000/docs
@@ -190,12 +188,14 @@ docker run -p 8501:8501 immo-streamlit
 You can test the API using curl or Postman.
 For Windows (CMD or PowerShell):
 ```
-curl -X POST "http://localhost:8000/predict" -H "Content-Type: application/json" -d "{\"property_type\": \"apartment\", \"total_area_sqm\": 100, \"nbr_bedrooms\": 2}"
+curl -X POST "http://localhost:8000/predict" 
+-H "Content-Type: application/json" 
+-d "{\"property_type\": \"apartment\", \"total_area_sqm\": 100, \"nbr_bedrooms\": 2}"
 ```
 For Linux/Mac:
 ```
-curl -X POST "http://localhost:8000/predict" \
--H "Content-Type: application/json" \
+curl -X POST "http://localhost:8000/predict" 
+-H "Content-Type: application/json" 
 -d '{"property_type": "apartment", "total_area_sqm": 100, "nbr_bedrooms": 2}'
 ```
 
@@ -204,7 +204,7 @@ curl -X POST "http://localhost:8000/predict" \
 The project is deployed on Render using Docker. The deployment process is automated using the render.yaml configuration file.
 
 ### render.yml Configuration:
-services:
+**services:**
   - type: web
     name: fastapi-service
     env: docker
