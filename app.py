@@ -66,7 +66,6 @@ if __name__ == "__main__":
 
 
 
-
 # Adding CORS middleware to allow cross-origin requests
 app.add_middleware(
     CORSMiddleware,

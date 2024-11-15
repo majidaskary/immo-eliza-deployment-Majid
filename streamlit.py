@@ -41,6 +41,7 @@ if st.button("Predict Price"):
         #total_area_per_bedroom_scaled      # from "total_area_sqm" and "nbr_bedrooms"
     }
 
+
     # Send a POST request to the FastAPI backend    
     try:
         # api_url = "https://immo-code.onrender.com/predict"

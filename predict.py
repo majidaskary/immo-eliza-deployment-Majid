@@ -2,6 +2,7 @@ import pickle
 import os
 import gc
 
+
 # Function to load a model using pickle
 def load_model(model_path):
     print(f"Loading model from: {model_path}")
