@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Literal
-from .predict import predict
-from .predict import preprocessing
+from .predict import predict_price
+#from .predict import preprocessing
 from fastapi.middleware.cors import CORSMiddleware
 
 # Initialize FastAPI app
@@ -46,7 +46,7 @@ async def health_check():
 @app.post("/predict")
 async def prediction(data: InputData):     # asynd def is an asynchronous function 
     # Get the prediction result after preprocessing
-    result = predict(data.property_type, data.total_area_sqm, data.nbr_bedrooms)
+    result = predict_price(data.property_type, data.total_area_sqm, data.nbr_bedrooms)
     # result = preprocessing(data.property_type, data.zip_code_cut, data.total_area_sqm, 
     #                 data.nbr_bedrooms,data.construction_category, data.Bulding_sta_encoded,
     #                 data.kitchen_type_encoded, data.epc_encoded, data.terrace, terrace_sqm,

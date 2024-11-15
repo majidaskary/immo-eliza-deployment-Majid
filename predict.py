@@ -25,7 +25,7 @@ apartment_model = load_model('gb.LGBM_Regressor_Apartment.pkl')
 house_model = load_model('gb.LGBM_Regressor_House.pkl')
 
 # Prediction function
-def predict(property_type, total_area_sqm, nbr_bedrooms):
+def predict_price(property_type, total_area_sqm, nbr_bedrooms):
     # Select the appropriate model
     model = apartment_model if property_type == "apartment" else house_model
 
@@ -36,12 +36,12 @@ def predict(property_type, total_area_sqm, nbr_bedrooms):
     features = [total_area_sqm, nbr_bedrooms]
     try:
         # Make prediction
-        prediction = model.predict([features])[0]
+        prediction = model.predict_price([features])[0]
         return {"prediction": prediction}
     except Exception as e:
         return {"error": str(e)}
 
-#def preprocessing(data.property_type, zip_code_cut, data.total_area_sqm, data.nbr_bedrooms,
+#def preprocessing(property_type, zip_code_cut, total_area_sqm, nbr_bedrooms,
     #                 construction_category, Bulding_sta_encoded, kitchen_type_encoded, epc_encoded, 
     #                 terrace, terrace_sqm, fl_furnished, garden, garden_sqm, surface_land_sqm, nbr_frontages):
 def preprocessing():
