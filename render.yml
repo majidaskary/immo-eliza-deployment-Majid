@@ -1,15 +1,15 @@
 services:
   - type: web
-    name: fastapi-service                            # Name of the FastAPI service
-    env: docker                                      # Use Docker environment for FastAPI
-    dockerfilePath: Dockerfile.fastapi               # Specify the Dockerfile for FastAPI
-    plan: free                                       # Use the free tier plan
-    healthCheckPath: "/health"                       # Optional health check endpoint
-    autoDeploy: true                                 # Enable auto-deploy on Git push
+    name: fastapi-service
+    env: docker
+    dockerfilePath: Dockerfile.fastapi
+    plan: free
+    healthCheckPath: "/health"
+    autoDeploy: true
 
   - type: web
-    name: streamlit-service                          # Name of the Streamlit service
-    env: docker                                      # Use Docker environment for Streamlit
-    dockerfilePath: Dockerfile.streamlit             # Specify the Dockerfile for Streamlit
-    plan: free                                       # Use the free tier plan
-    autoDeploy: true                                 # Enable auto-deploy on Git push
+    name: streamlit-service
+    env: docker
+    dockerfilePath: Dockerfile.streamlit
+    plan: free
+    autoDeploy: true
