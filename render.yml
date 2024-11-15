@@ -1,12 +1,15 @@
 services:
-  - type: web                                                     # The type of service. Use web for a FastAPI app
-    name: fastapi-app                                             # The name of the service
-    env: python                                                   # The environment type. Use python for Python applications
-    region: oregon                                                # The server region (e.g., oregon). can change this based on preferred region
-    buildCommand: "pip install -r requirements.txt"               # The command to install dependencies from "requirements.txt"
-    startCommand: "uvicorn app:app --host 0.0.0.0 --port 8000"    # The command to start the FastAPI app with Uvicorn
-    plan: free                                                    # The pricing plan. Use free for the free tier
-    healthCheckPath: "/health"                                    # The endpoint for health checks. This is optional but recommended.
-    envVars:                                                      # Environment variables. set the PORT variable to 8000
-      - key: PORT
-        value: "8000"
+  - type: web
+    name: fastapi-service                            # Name of the FastAPI service
+    env: docker                                      # Use Docker environment for FastAPI
+    dockerfilePath: Dockerfile.fastapi               # Specify the Dockerfile for FastAPI
+    plan: free                                       # Use the free tier plan
+    healthCheckPath: "/health"                       # Optional health check endpoint
+    autoDeploy: true                                 # Enable auto-deploy on Git push
+
+  - type: web
+    name: streamlit-service                          # Name of the Streamlit service
+    env: docker                                      # Use Docker environment for Streamlit
+    dockerfilePath: Dockerfile.streamlit             # Specify the Dockerfile for Streamlit
+    plan: free                                       # Use the free tier plan
+    autoDeploy: true                                 # Enable auto-deploy on Git push
