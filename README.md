@@ -61,12 +61,12 @@ Contributing
 │   README.md
 ```
 
-* app.py: FastAPI backend application.
-* streamlit.py: Streamlit frontend application.
-* predict.py: Prediction logic and data preprocessing.
-* Dockerfile.fastapi: Dockerfile for FastAPI service.
-* Dockerfile.streamlit: Dockerfile for Streamlit service.
-* render.yaml: Configuration for deployment on Render.
+* **app.py:** FastAPI backend application.
+* **streamlit.py:** Streamlit frontend application.
+* **predict.py:** Prediction logic and data preprocessing.
+* **Dockerfile.fastapi:** Dockerfile for FastAPI service.
+* **Dockerfile.streamlit:** Dockerfile for Streamlit service.
+* **render.yaml:** Configuration for deployment on Render.
 
 
 ## 🖼️ Architecture
@@ -87,20 +87,20 @@ Below is the architecture diagram of the project:
 
 ## ✨ Features
 
-* 🏠 Property Price Prediction: Predicts property prices based on user inputs using a trained LightGBM model.
-* 🚀 FastAPI Backend: Efficient and scalable API for handling prediction requests.
-* 🖥️ Streamlit Frontend: Interactive interface for public users to enter property details.
-* 🌐 Dockerized Deployment: Consistent environment using Docker for easy deployment and scalability.
-* 📈 Model Selection: Automatically selects the appropriate model based on the property type (apartment or house).
+* 🏠 **Property Price Prediction:** Predicts property prices based on user inputs using a trained LightGBM model.
+* 🚀 **FastAPI Backend:** Efficient and scalable API for handling prediction requests.
+* 🖥 **Streamlit Frontend**: Interactive interface for public users to enter property details.
+* 🌐 **Dockerized Deployment:** Consistent environment using Docker for easy deployment and scalability.
+* 📈 **Model Selection:** Automatically selects the appropriate model based on the property type (apartment or house).
 
 
 ## 🛠️ Tech Stack
 
-* Backend: FastAPI, Uvicorn
-* Frontend: Streamlit
-* Machine Learning: Scikit-learn, LightGBM
-* Deployment: Docker, Render
-* Programming Language: Python 3.11
+* **Backend:** FastAPI, Uvicorn
+* **Frontend:** Streamlit
+* **Machine Learning:** Scikit-learn, LightGBM
+* **Deployment:** Docker, Render
+* **Programming Language:** Python 3.11
 
 
 ##  Data Preprocessing and Prediction
@@ -137,37 +137,32 @@ Prerequisites
 
 
 ### Clone the Repository:
-For Windows:
-
+```cmd
+For Windows:\
 git clone https://github.com/majidaskary/immo-eliza-deployment.git
 cd immo-eliza-deployment
 
-For Linux/Mac:
-
+For Linux/Mac:\
 git clone https://github.com/majidaskary/immo-eliza-deployment.git
 cd immo-eliza-deployment
 
 ### Set Up a Virtual Environment
 
-For Windows:
-
-python -m venv APIenv
+For Windows:\
+python -m venv APIenv\
 APIenv\Scripts\activate
 
-For Linux/Mac:
-
-python3 -m venv APIenv
+For Linux/Mac:\
+python3 -m venv APIenv\
 source APIenv/bin/activate
 
 ### Install Dependencies
-For Both Windows and Linux/Mac:
-
+For Both Windows and Linux/Mac:\
 pip install -r requirements.txt
 
 ### Build Docker Images
-For Both Windows and Linux/Mac:
-
-docker build -t immo-fastapi -f Dockerfile.fastapi .
+For Both Windows and Linux/Mac:\
+docker build -t immo-fastapi -f Dockerfile.fastapi .\
 docker build -t immo-streamlit -f Dockerfile.streamlit .
 
 
@@ -176,9 +171,8 @@ docker build -t immo-streamlit -f Dockerfile.streamlit .
 ### Running Locally with Docker
 Start the FastAPI and Streamlit services locally.
 
-For Both Windows and Linux/Mac:
-
-docker run -p 8000:8000 immo-fastapi
+For Both Windows and Linux/Mac:\
+docker run -p 8000:8000 immo-fastapi\
 docker run -p 8501:8501 immo-streamlit
 
 * FastAPI will be available at: http://localhost:8000/docs
