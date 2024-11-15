@@ -15,8 +15,6 @@ The application is deployed and accessible at:
 - **Backend API (FastAPI)**: The API is integrated into the same link and accessible via endpoints (e.g., `/docs` for API documentation).
 
 
-
-
 # 📝 Table of Contents
 Overview
 Repo structure
@@ -137,44 +135,52 @@ Prerequisites
 
 
 ### Clone the Repository:
-```cmd
-For Windows:\
+For Windows:
+```
 git clone https://github.com/majidaskary/immo-eliza-deployment.git
 cd immo-eliza-deployment
-
-For Linux/Mac:\
+```
+For Linux/Mac:
+```
 git clone https://github.com/majidaskary/immo-eliza-deployment.git
 cd immo-eliza-deployment
+```
 
 ### Set Up a Virtual Environment
-
-For Windows:\
+For Windows:
+```
 python -m venv APIenv\
 APIenv\Scripts\activate
+```
 
-For Linux/Mac:\
+For Linux/Mac:
+```
 python3 -m venv APIenv\
 source APIenv/bin/activate
+```
 
 ### Install Dependencies
-For Both Windows and Linux/Mac:\
+For Both Windows and Linux/Mac:
+```
 pip install -r requirements.txt
+```
 
 ### Build Docker Images
-For Both Windows and Linux/Mac:\
+For Both Windows and Linux/Mac:
+```
 docker build -t immo-fastapi -f Dockerfile.fastapi .\
 docker build -t immo-streamlit -f Dockerfile.streamlit .
-
+```
 
 ## 🚀 Usage
 
 ### Running Locally with Docker
 Start the FastAPI and Streamlit services locally.
-
-For Both Windows and Linux/Mac:\
+For Both Windows and Linux/Mac:
+```
 docker run -p 8000:8000 immo-fastapi\
 docker run -p 8501:8501 immo-streamlit
-
+```
 * FastAPI will be available at: http://localhost:8000/docs
 * Streamlit will be available at: http://localhost:8501
 
@@ -182,17 +188,16 @@ docker run -p 8501:8501 immo-streamlit
 ## Making API Requests
 
 You can test the API using curl or Postman.
-
 For Windows (CMD or PowerShell):
-
+```
 curl -X POST "http://localhost:8000/predict" -H "Content-Type: application/json" -d "{\"property_type\": \"apartment\", \"total_area_sqm\": 100, \"nbr_bedrooms\": 2}"
-
+```
 For Linux/Mac:
-
+```
 curl -X POST "http://localhost:8000/predict" \
 -H "Content-Type: application/json" \
 -d '{"property_type": "apartment", "total_area_sqm": 100, "nbr_bedrooms": 2}'
-
+```
 
 ## 🌐 Deployment
 
