@@ -22,6 +22,7 @@ def predict(property_type, total_area_sqm, nbr_bedrooms):
         return {"error": str(e)}
 
 
+
 #----------------------------------------------------------------
 # import pickle
 # import os

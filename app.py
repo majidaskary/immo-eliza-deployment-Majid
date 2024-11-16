@@ -6,6 +6,7 @@ from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 from predict import predict
 
+
 # Define FastAPI app
 app = FastAPI()
 
