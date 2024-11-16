@@ -4,29 +4,34 @@ import joblib
 import os
 import gc
 
-# Function to load a model using joblib
-def load_model(model_path):
-    """
-    Load a model from the specified file path using joblib.
-    """
-    print(f"Loading model from: {model_path}")
-    if not os.path.exists(model_path):
-        print(f"Model file not found: {model_path}")
-        return None
+# # Function to load a model using joblib
+# def load_model(model_path):
+#     """
+#     Load a model from the specified file path using joblib.
+#     """
+#     print(f"Loading model from: {model_path}")
+#     if not os.path.exists(model_path):
+#         print(f"Model file not found: {model_path}")
+#         return None
 
-    try:
-        # Clear memory cache
-        gc.collect()
-        model = joblib.load(model_path)
-        print(f"Model loaded successfully from {model_path}")
-        return model
-    except Exception as e:
-        print(f"Error loading model: {e}")
-        return None
+#     try:
+#         # Clear memory cache
+#         gc.collect()
+#         model = joblib.load(model_path)
+#         print(f"Model loaded successfully from {model_path}")
+#         return model
+#     except Exception as e:
+#         print(f"Error loading model: {e}")
+#         return None
 
-# Load apartment and house models
-apartment_model = load_model('gb.LGBM_Regressor_Apartment.joblib')
-house_model = load_model('gb.LGBM_Regressor_House.joblib')
+# # Load apartment and house models
+# apartment_model = load_model('gb.LGBM_Regressor_Apartment.joblib')
+# house_model = load_model('gb.LGBM_Regressor_House.joblib')
+
+
+# Load models
+apartment_model = joblib.load("gb.LGBM_Regressor_Apartment.pkl")
+house_model = joblib.load("gb.LGBM_Regressor_House.pkl")
 
 # Prediction function
 def predict(property_type, total_area_sqm, nbr_bedrooms):
@@ -55,11 +60,7 @@ def predict(property_type, total_area_sqm, nbr_bedrooms):
     except Exception as e:
         return {"error": f"Prediction failed: {str(e)}"}
 
-
-
 #--------------------------------------------------
-# import joblib
-
 # # Load models
 # apartment_model = joblib.load("gb.LGBM_Regressor_Apartment.pkl")
 # house_model = joblib.load("gb.LGBM_Regressor_House.pkl")
