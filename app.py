@@ -44,27 +44,35 @@ async def health_check():
     return {"status": "healthy"}
 
 # Redirect from GET to POST for /predict
-@app.get("/predict")
-async def redirect_to_post():
-    response = RedirectResponse(url="/predict", status_code=307)
-    response.method = "POST"
-    return response
+# @app.get("/predict")
+# async def redirect_to_post():
+#     response = RedirectResponse(url="/predict", status_code=307)
+#     response.method = "POST"
+#     return response
 
 @app.post("/predict")
 async def prediction(data: InputData):     # asynd def is an asynchronous function 
     # Get the prediction result after preprocessing
     result = predict(data.property_type, data.total_area_sqm, data.nbr_bedrooms)
+    if "error" in result:
+        return {"error": result["error"]}
+    else:
+        return {"prediction": result["prediction"]}
+
+
+# @app.post("/predict")
+# async def prediction(data: InputData):     # asynd def is an asynchronous function 
+    # Get the prediction result after preprocessing
     # result = preprocessing(data.property_type, data.zip_code_cut, data.total_area_sqm, 
     #                 data.nbr_bedrooms,data.construction_category, data.Bulding_sta_encoded,
     #                 data.kitchen_type_encoded, data.epc_encoded, data.terrace, terrace_sqm,
     #                 data.fl_furnished, data.garden, data.garden_sqm, data.surface_land_sqm, 
     #                 data.nbr_frontages)
 
-    # Return the result
-    if "error" in result:
-        return {"error": result["error"]}
-    else:
-        return {"prediction": result["prediction"]}
+    # if "error" in result:
+    #     return {"error": result["error"]}
+    # else:
+    #     return {"prediction": result["prediction"]}
 
 
 if __name__ == "__main__":
