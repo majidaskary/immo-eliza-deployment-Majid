@@ -1,5 +1,4 @@
 
-
 # streamlit.py
 
 import streamlit as st
@@ -18,6 +17,7 @@ if st.button("Predict"):
         st.error(result["error"])
     else:
         st.success(f"Predicted Price: {result['prediction']}")
+
 
 
 #----------------------------------------------------------------------------------
