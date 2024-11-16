@@ -44,12 +44,11 @@ async def health_check():
     return {"status": "healthy"}
 
 # Redirect from GET to POST for /predict
-# @app.get("/predict")
-# async def redirect_to_post():
-#     response = RedirectResponse(url="/predict", status_code=307)
-#     response.method = "POST"
-#     return response
-
+@app.get("/predict")
+async def redirect_to_post():
+    response = RedirectResponse(url="/predict", status_code=307)
+    response.method = "POST"
+    return response
 
 @app.post("/predict")
 async def prediction(data: InputData):     # asynd def is an asynchronous function 
