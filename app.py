@@ -43,13 +43,13 @@ async def prediction(data: InputData):
         return {"prediction": result["prediction"]}
 
 
-# Adding CORS middleware to allow cross-origin requests
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # In production, restrict this to the specific Streamlit URL
-    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, PUT, DELETE)
-    allow_headers=["*"],  # Allow all HTTP headers
-)
+# # Adding CORS middleware to allow cross-origin requests
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],  # In production, restrict this to the specific Streamlit URL
+#     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, PUT, DELETE)
+#     allow_headers=["*"],  # Allow all HTTP headers
+# )
 
 
 # ---------------------------------------------
