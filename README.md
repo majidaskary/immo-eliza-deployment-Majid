@@ -73,9 +73,13 @@ Below is the architecture diagram of the project:
 
 ## ✨ Features
 🏠 **Property Price Prediction:** Predicts property prices based on user inputs using a trained LightGBM model.
+
 🚀 **FastAPI Backend:** Efficient and scalable API for handling prediction requests.
+
 🖥 **Streamlit Frontend**: Interactive interface for public users to enter property details.
+
 🌐 **Dockerized Deployment:** Consistent environment using Docker for easy deployment and scalability.
+
 📈 **Model Selection:** Automatically selects the appropriate model based on the property type (apartment or house).
 
 
