@@ -12,7 +12,7 @@ app = FastAPI()
 # Define input data model
 class InputData(BaseModel):
     property_type: str
-    total_area_sqm: float
+    total_area_sqm: int
     nbr_bedrooms: int
 
 # Root endpoint
