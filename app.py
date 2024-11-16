@@ -44,11 +44,11 @@ class InputData(BaseModel):
 
 # Redirect from GET to POST for /predict
 # @app.get("/predict")
-@app.get("/")
-async def redirect_to_post():
-    response = RedirectResponse(url="/predict", status_code=307)
-    response.method = "POST"
-    return response
+# @app.get("/")
+# async def redirect_to_post():
+#     response = RedirectResponse(url="/predict", status_code=307)
+#     response.method = "POST"
+#     return response
 
 @app.get("/health")
 async def health_check():
