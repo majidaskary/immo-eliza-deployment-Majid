@@ -1,4 +1,4 @@
-# Use the Python base image
+# Use Python base image
 FROM python:3.11-slim
 
 # Set the working directory
@@ -11,15 +11,16 @@ RUN apt-get update && apt-get install -y libgomp1
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
+# Copy application code
 COPY . .
 
-# Expose ports for FastAPI and Streamlit
+# Expose FastAPI and Streamlit ports
 EXPOSE 8000
 EXPOSE 8501
+
+# Start both FastAPI and Streamlit servers
+CMD uvicorn app:app --host 0.0.0.0 --port 8000 & streamlit run streamlit.py --server.port=8501 --server.address=0.0.0.0
 
 # Start both FastAPI and Streamlit servers with a delay for Streamlit
 # CMD uvicorn app:app --host 0.0.0.0 --port 8000 & \
 #     sleep 3 && streamlit run streamlit.py --server.port=8501 --server.address=0.0.0.0
-
-CMD uvicorn app:app --host 0.0.0.0 --port 8000 & streamlit run streamlit.py --server.port=8501 --server.address=0.0.0.0

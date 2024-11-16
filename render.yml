@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: immo-code-service
+    name: immo-fastapi-service
     env: docker
     dockerfilePath: ./Dockerfile
     plan: free
@@ -9,3 +9,14 @@ services:
     envVars:
       - key: PORT
         value: "8000"
+
+  - type: web
+    name: immo-streamlit-service
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: "/"
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: "8501"

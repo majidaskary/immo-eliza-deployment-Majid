@@ -44,6 +44,7 @@ def form_page():
 async def health_check():
     return {"status": "healthy"}
 
+# Redirect from GET to POST for /predict
 @app.get("/predict")
 async def redirect_to_post():
     response = RedirectResponse(url="/predict", status_code=307)
@@ -80,3 +81,6 @@ app.add_middleware(
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, PUT, DELETE)
     allow_headers=["*"],  # Allow all HTTP headers
 )
+
+
+
