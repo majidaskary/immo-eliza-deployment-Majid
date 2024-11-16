@@ -35,14 +35,12 @@ class InputData(BaseModel):
     #total_area_per_bedroom_scaled      # from "total_area_sqm" and "nbr_bedrooms"
   
 
-@app.get("/")
-def form_page():      
-   return {"welcome to immo-Code"}
+# @app.get("/")
+# def form_page():      
+#    return {"welcome to immo-Code"}
 
 
-@app.get("/health")
-async def health_check():
-    return {"status": "healthy"}
+
 
 # Redirect from GET to POST for /predict
 # @app.get("/predict")
@@ -51,6 +49,10 @@ async def redirect_to_post():
     response = RedirectResponse(url="/predict", status_code=307)
     response.method = "POST"
     return response
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
 
 @app.post("/predict")
 async def prediction(data: InputData):     # asynd def is an asynchronous function 
